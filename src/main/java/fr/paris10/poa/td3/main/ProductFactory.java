@@ -7,13 +7,31 @@ import java.util.Map;
  * Created by vabouque on 10/10/2016.
  */
 public class ProductFactory {
-    private static Map<String, Product> registry = new HashMap<String, Product>();
 
-    public static void registerProduct(String name, Product p) {
-        registry.put(name,p);
+    static ProductFactory instance;
+
+    public static ProductFactory getInstance() {
+        if(instance == null) {
+            instance = new ProductFactory();
+        }
+        return instance;
     }
 
-    public Product createProduct(String name) {
-        return registry.get(name).createProduct();
+    public Product createProduct(String productName) {
+        if (productName.equals("ProductA")) {
+            return new ProductA();
+        }
+        if (productName.equals("ProductB")) {
+            return new ProductB();
+        }
+        if (productName.equals("ProductC")) {
+            return new ProductC();
+        }
+
+        return new ProductA();
+    }
+
+    public Product createProduct() {
+        return new ProductA();
     }
 }

@@ -6,18 +6,19 @@ import fr.paris10.poa.td3.main.*;
  * Created by vabouque on 10/10/2016.
  */
 public class Client {
-    private ProductA prodA;
-    private ProductB prodB;
+    private Product prodA;
+    ProductFactory factory;
 
     public Client() {
-        prodA = new ProductA();
+        factory = ProductFactory.getInstance();
+        prodA = factory.createProduct("ProductA");
     }
 
     public void foo() {
         prodA.doStuff();
-        ProductB myProdB = new ProductB();
+        Product myProdB = factory.createProduct("ProductB");
         myProdB.doStuff();
-        ProductC myProdC = new ProductC();
+        Product myProdC = factory.createProduct("ProductC");
         myProdC.doStuff();
     }
 }

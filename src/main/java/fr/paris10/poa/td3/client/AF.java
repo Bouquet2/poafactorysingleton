@@ -1,6 +1,4 @@
-package fr.paris10.poa.td3.main;
-
-import fr.paris10.poa.td3.client.Client;
+package fr.paris10.poa.td3.client;
 
 /**
  * Created by vabouque on 10/10/2016.
